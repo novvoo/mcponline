@@ -26,6 +26,10 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
+![demo](./images/299.png)
+
+
+
 ## Usage
 
 1. **Enter URL**: Input your SSE endpoint URL (must start with https://)
