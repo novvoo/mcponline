@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf9f7;
+  --foreground: #1a1a1a;
+  --card-bg: #ffffff;
+  --border-color: #e5e5e5;
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+  --button-primary: #2d3748;
+  --button-secondary: #718096;
+  --terminal-bg: #1a1a1a;
+  --terminal-text: #a0aec0;
+  --accent-green: #48bb78;
+  --accent-red: #f56565;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Input focus styles */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: #4a5568;
+  ring-opacity: 0.3;
+}
+
+/* Terminal/Response Stream Styles */
+.terminal-container {
+  background-color: #1a1a1a;
+  color: #a0aec0;
+  font-family: var(--font-geist-mono), 'Courier New', monospace;
+}
+
+.terminal-container .event-item {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #374151;
+}
+
+.terminal-container .event-item:last-child {
+  border-bottom: none;
+}
+
+.terminal-container .event-timestamp {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.terminal-container .event-content {
+  color: #d1d5db;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.terminal-container .json-formatted {
+  background-color: #111827;
+  border: 1px solid #374151;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+}
+
+.terminal-container .json-key {
+  color: #fbbf24;
+}
+
+.terminal-container .json-string {
+  color: #34d399;
+}
+
+.terminal-container .json-number {
+  color: #60a5fa;
+}
+
+.terminal-container .json-boolean {
+  color: #a78bfa;
+}
+
+.terminal-container .json-null {
+  color: #6b7280;
+}
+
+.terminal-container .json-punctuation {
+  color: #9ca3af;
+}
+
+/* Event type indicators */
+.event-indicator-connection {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #3b82f6;
+  border-radius: 50%;
+}
+
+.event-indicator-data {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #10b981;
+  border-radius: 50%;
+}
+
+.event-indicator-error {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #ef4444;
+  border-radius: 50%;
+}
+
+.event-indicator-info {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #f59e0b;
+  border-radius: 50%;
+}
+
+/* Copy button styles */
+.copy-button {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  background: rgba(55, 65, 81, 0.8);
+  color: #9ca3af;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  color: #d1d5db;
+  background: rgba(55, 65, 81, 1);
+}
+
+.event-item:hover .copy-button {
+  opacity: 1;
+}
+
+/* Ensure proper spacing and layout */
+.terminal-container .ml-4 {
+  margin-left: 1rem;
+}
+
+.terminal-container .relative {
+  position: relative;
+}
+
+.terminal-container .group:hover .copy-button {
+  opacity: 1;
+}
+
+/* Empty state styling */
+.terminal-empty-state {
+  opacity: 0.6;
+  text-align: center;
+  padding: 3rem 0;
+  color: #6b7280;
+}
+
+.terminal-empty-state .title {
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.terminal-empty-state .subtitle {
+  font-size: 0.75rem;
+  color: #4b5563;
+}
+
+.terminal-empty-state .tip {
+  font-size: 0.75rem;
+  color: #4b5563;
+  margin-top: 1rem;
+}
